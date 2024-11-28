@@ -1,34 +1,32 @@
 // Pins for RGB LEDs
-int r1 = 13, g1 = 12, b1 = 11;
-int r2 = 10, g2 = 9, b2 = 8;
-int r3 = 7, g3 = 6, b3 = 5;
-int r4 = 4, g4 = 3, b4 = 2;
-int r5 = A3, g5 = A4, b5 = A5;
+const int r1 = 13, g1 = 12, b1 = 11;
+const int r2 = 10, g2 = 9, b2 = 8;
+const int r3 = 7, g3 = 6, b3 = 5;
+const int r4 = 4, g4 = 3, b4 = 2;
+const int r5 = A3, g5 = A4, b5 = A5;
 
 // LED arrays for indexing
-int redPins[] = {13, 10, 7, 4, A3};
-int greenPins[] = {12, 9, 6, 3, A4};
-int bluePins[] = {11, 8, 5, 2, A5};
+const int redPins[] = {13, 10, 7, 4, A3};
+const int greenPins[] = {12, 9, 6, 3, A4};
+const int bluePins[] = {11, 8, 5, 2, A5};
 
-int tempo = 85;
+const int tempo = 85;
+const unsigned long quarterNote = 60.0 / tempo * 1000; // 3/4 time, so a quarter note gets a beat
+const unsigned long halfNote = quarterNote * 2;
+const unsigned long dottedHalfNote = quarterNote * 3;
+const unsigned long eighthNote = quarterNote / 2;
 
-unsigned long quarterNote = 60.0 / tempo * 1000; // 3/4 time, so a quarter note gets a beat
-unsigned long halfNote = quarterNote * 2;
-unsigned long dottedHalfNote = quarterNote * 3;
-unsigned long eighthNote = quarterNote / 2;
-
-bool practice = false;
-bool competitive = false;
+const int songLength = 108; // Song length in half beats
 
 // RGB colors
-int offRGB[] = {0, 0, 0};
-int redRGB[] = {1, 0, 0};
-int greenRGB[] = {0, 1, 0};
-int blueRGB[] = {0, 0, 1}; 
-int yellowRGB[] = {1, 1, 0};
-int cyanRGB[] = {0, 1, 1};
-int magentaRGB[] = {1, 0, 1};
-int whiteRGB[] = {1, 1, 1};
+const int offRGB[] = {0, 0, 0};
+const int redRGB[] = {1, 0, 0};
+const int greenRGB[] = {0, 1, 0};
+const int blueRGB[] = {0, 0, 1}; 
+const int yellowRGB[] = {1, 1, 0};
+const int cyanRGB[] = {0, 1, 1};
+const int magentaRGB[] = {1, 0, 1};
+const int whiteRGB[] = {1, 1, 1};
 
 // Color names
 const int off = 0;
@@ -39,8 +37,6 @@ const int D_yellow = 4;
 const int E_cyan = 5;
 const int F_magenta = 6;
 const int G_white = 7;
-
-const int songLength = 108; // Song length in half beats
 
 int song[songLength][5] = {
   // Bar 1
@@ -188,6 +184,8 @@ int song[songLength][5] = {
   {A_red, off, off, off, off},
 };
 
+bool practice = false;
+bool competitive = false;
 int practiceModeBeat = 0;
 bool beatChanged = false;
 
