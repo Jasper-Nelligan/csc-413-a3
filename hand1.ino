@@ -38,150 +38,296 @@ const int E_cyan = 5;
 const int F_magenta = 6;
 const int G_white = 7;
 
+// int song[songLength][5] = {
+//   // Bar 1
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+
+//   // Bar 2
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+
+//   // Bar 3
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+
+//   // Bar 4
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+
+//   // Bar 5
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+
+//   // Bar 6
+//   {off, off, off, off, E_cyan},
+//   {off, off, C_blue, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+
+//   // Bar 7
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+
+//   // Bar 8
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+
+//   // Bar 9
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, D_yellow, off},
+
+//   // Bar 10
+//   {A_red, off, off, off, off},
+//   {A_red, off, off, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+
+//   // Bar 11
+//   {A_red, off, off, off, off},
+//   {A_red, off, off, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+
+//   // Bar 12
+//   {off, B_green, off, off, off},
+//   {off, B_green, off, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+
+//   // Bar 13
+//   {off, B_green, off, off, off},
+//   {off, B_green, off, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+
+//   // Bar 14
+//   {off, off, C_blue, off, off},
+//   {off, off, C_blue, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+
+//   // Bar 15
+//   {off, off, C_blue, off, off},
+//   {off, off, C_blue, off, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+
+//   // Bar 16
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+
+//   // Bar 17
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, D_yellow, off},
+//   {off, off, off, off, E_cyan},
+//   {off, off, off, off, E_cyan},
+//   {off, B_green, off, off, off},
+//   {off, B_green, off, off, off},
+
+//   // Bar 18
+//   {A_red, off, off, off, off},
+//   {A_red, off, off, off, off},
+//   {A_red, off, off, off, off},
+//   {A_red, off, off, off, off},
+//   {A_red, off, off, off, off},
+//   {A_red, off, off, off, off},
+// };
+
 int song[songLength][5] = {
   // Bar 1
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
 
   // Bar 2
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
+  {off, off, off, off, off},
 
   // Bar 3
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
+  {off, off, A_red, off, off},
+  {off, off, A_red, off, off},
+  {off, off, A_red, off, off},
+  {off, off, A_red, off, off},
+  {off, off, A_red, off, off},
+  {off, off, A_red, off, off},
 
   // Bar 4
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
 
   // Bar 5
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
+  {off, off, A_red, off, off},
+  {off, off, A_red, off, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, off, C_blue},
+  {off, off, off, off, C_blue},
 
   // Bar 6
-  {off, off, off, off, E_cyan},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, A_red, off, off},
+  {off, off, A_red, off, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
 
   // Bar 7
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
+  {off, off, off, off, C_blue},
+  {off, off, off, off, C_blue},
+  {off, off, off, off, C_blue},
+  {off, off, off, off, C_blue},
+  {off, off, off, off, C_blue},
+  {off, off, off, off, C_blue},
 
   // Bar 8
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
 
   // Bar 9
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, D_yellow, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
+  {off, off, off, B_green, off},
 
   // Bar 10
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
 
   // Bar 11
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
+  {F_magenta, off, off, off, C_blue},
 
   // Bar 12
-  {off, B_green, off, off, off},
-  {off, B_green, off, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
 
   // Bar 13
-  {off, B_green, off, off, off},
-  {off, B_green, off, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
 
   // Bar 14
-  {off, off, C_blue, off, off},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
 
   // Bar 15
-  {off, off, C_blue, off, off},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
+  {E_cyan, off, off, A_red, off},
 
   // Bar 16
-  {off, off, off, D_yellow, off},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
 
   // Bar 17
-  {off, off, off, D_yellow, off},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, B_green, off, off, off},
-  {off, B_green, off, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
+  {D_yellow, off, G_white, off, off},
 
   // Bar 18
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
+  {off, off, off, A_red, off},
+  {off, off, off, A_red, off},
+  {off, off, off, A_red, off},
+  {off, off, off, A_red, off},
+  {off, off, off, A_red, off},
+  {off, off, off, A_red, off},
 };
 
 bool practice = false;
