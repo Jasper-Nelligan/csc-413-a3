@@ -20,15 +20,17 @@ def process_track(track):
 
     return events
 
-def midi_to_note_sequence(midi_file_path):
-    midi_file = mido.MidiFile("../Interstellar Main Theme.mid")
+def midi_to_note_sequence(midi_file_path, right_hand, left_hand):
+    midi_file = mido.MidiFile(midi_file_path)
 
     right_hand_events = []
     left_hand_events = []
     
     # Process each track in the MIDI file
-    right_hand_events = process_track(midi_file.tracks[0])
-    left_hand_events = process_track(midi_file.tracks[1])
+    if right_hand:
+        right_hand_events = process_track(midi_file.tracks[0])
+    if left_hand:
+        left_hand_events = process_track(midi_file.tracks[1])
 
     # Merge and align events by time
     all_events = sorted(right_hand_events + left_hand_events, key=lambda x: x["time"])

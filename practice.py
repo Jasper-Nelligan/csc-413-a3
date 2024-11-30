@@ -1,9 +1,13 @@
 import mido
 from midi_to_note_sequence import midi_to_note_sequence
 
-def start_practice_mode(midi_file_path):
+def start_practice_mode(midi_file_path, right_hand=True, left_hand=True):
+    if not right_hand and not left_hand:
+        print("Both hands cannot be disabled. Exiting...")
+        return
+
+    noteSequence = midi_to_note_sequence(midi_file_path, right_hand, left_hand)
     currentBeat = 0
-    noteSequence = midi_to_note_sequence(midi_file_path)
     print(noteSequence)
 
     # Connect to the keyboard
@@ -39,4 +43,4 @@ def start_practice_mode(midi_file_path):
                 currentBeat += 1
 
 if __name__ == "__main__":
-    start_practice_mode("../Interstellar Main Theme.mid")
+    start_practice_mode("../Interstellar Main Theme.mid", right_hand=False, left_hand=True)
