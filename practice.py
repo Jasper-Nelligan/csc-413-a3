@@ -1,3 +1,7 @@
+"""
+Starts practice mode and communicates with the Arduino to light up the LEDs
+"""
+
 import mido
 from midi_to_note_sequence import midi_to_note_sequence
 
