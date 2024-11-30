@@ -1,11 +1,17 @@
 """
 Starts practice mode and communicates with the Arduino to light up the LEDs
+
+Arguments:
+    midi_file_path: The path to the MIDI file to practice
+    use_right_hand: Whether to use the right hand
+    use_left_hand: Whether to use the left hand
+    use_dynamics: Whether to use dynamics
 """
 
 import mido
 from midi_to_note_sequence import midi_to_note_sequence
 
-def start_practice_mode(midi_file_path, use_right_hand, use_left_hand):
+def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynamics):
     if not use_right_hand and not use_left_hand:
         print("Both hands cannot be disabled. Exiting...")
         return
