@@ -20,16 +20,16 @@ def process_track(track):
 
     return events
 
-def midi_to_note_sequence(midi_file_path, right_hand, left_hand):
+def midi_to_note_sequence(midi_file_path, use_right_hand, use_left_hand):
     midi_file = mido.MidiFile(midi_file_path)
 
     right_hand_events = []
     left_hand_events = []
     
     # Process each track in the MIDI file
-    if right_hand:
+    if use_right_hand:
         right_hand_events = process_track(midi_file.tracks[0])
-    if left_hand:
+    if use_left_hand:
         left_hand_events = process_track(midi_file.tracks[1])
 
     # Merge and align events by time
