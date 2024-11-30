@@ -39,7 +39,8 @@ def midi_to_note_sequence(midi_file_path, use_right_hand, use_left_hand):
     noteSequenceDict = {}
     for event in all_events:
         if event['time'] not in noteSequenceDict:
-            noteSequenceDict[event['time']] = []
-        noteSequenceDict[event['time']].append(event['note'])
-    noteSequence = [noteSequenceDict[time] for time in sorted(noteSequenceDict.keys())]
+            noteSequenceDict[event['time']] = [[], event['velocity']]
+        noteSequenceDict[event['time']][0].append(event['note'])
+
+    noteSequence = [[noteSequenceDict[time][0], noteSequenceDict[time][1]] for time in sorted(noteSequenceDict.keys())]
     return noteSequence

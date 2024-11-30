@@ -18,7 +18,6 @@ def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynam
 
     noteSequence = midi_to_note_sequence(midi_file_path, use_right_hand, use_left_hand)
     currentBeat = 0
-    print(noteSequence)
 
     # Connect to the keyboard
     keyboard_port = -1
@@ -45,12 +44,18 @@ def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynam
             velocity = int(velocity.split("=")[1])
 
             if velocity > 0:
-                current_notes.append(note)
+                if not use_dynamics:
+                    current_notes.append(note)
+                elif noteSequence[currentBeat][1] - 20 <= velocity <= noteSequence[currentBeat][1] + 20:
+                    current_notes.append(note)
             else:
-                current_notes.remove(note)
+                try:
+                    current_notes.remove(note)
+                except ValueError:
+                    pass
 
-            if current_notes == noteSequence[currentBeat]:
+            if current_notes == noteSequence[currentBeat][0]:
                 currentBeat += 1
 
 if __name__ == "__main__":
-    start_practice_mode("../Interstellar Main Theme.mid", use_right_hand=False, use_left_hand=True)
+    start_practice_mode("../Interstellar Main Theme.mid", use_right_hand=True, use_left_hand=True, use_dynamics=True)
