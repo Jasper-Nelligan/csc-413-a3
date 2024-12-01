@@ -1,5 +1,6 @@
 import pygame
 import customtkinter as ctk
+import practice
 
 # Initialize pygame mixer for audio playback
 pygame.mixer.init()
@@ -52,6 +53,7 @@ def stop_song():
 def start_practice():
     # Start the practice mode
     status_label.configure(text="Practice mode started.")
+    practice.start_practice_mode("Interstellar Main Theme.mid", use_right_hand, use_left_hand, use_dynamics)
 
 
 # Configure the appearance of the UI

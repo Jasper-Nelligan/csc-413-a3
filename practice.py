@@ -67,6 +67,4 @@ def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynam
             if current_notes == noteSequence[currentBeat][0]:
                 currentBeat += 1
                 serial_right_hand.write("b".encode())
-
-if __name__ == "__main__":
-    start_practice_mode("../Interstellar Main Theme.mid", use_right_hand=True, use_left_hand=True, use_dynamics=True)
+                serial_right_hand.write("b".encode())
