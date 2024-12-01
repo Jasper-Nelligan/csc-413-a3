@@ -10,8 +10,14 @@ Arguments:
 
 import mido
 from midi_to_note_sequence import midi_to_note_sequence
+import serial
+import time
 
 def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynamics):
+    serial_right_hand = serial.Serial('COM3', 9600)
+    # serial_left_hand = serial.Serial('COM4', 9600)
+    time.sleep(2)
+
     if not use_right_hand and not use_left_hand:
         print("Both hands cannot be disabled. Exiting...")
         return
@@ -27,6 +33,10 @@ def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynam
     except IndexError:
         print("No MIDI keyboard found. Exiting...")
         exit()
+
+    serial_right_hand.write("p".encode())
+    time.sleep(2)
+    serial_right_hand.write("b".encode())
 
     with mido.open_input(keyboard_port) as inport:
         print("Listening for MIDI messages...")
@@ -56,6 +66,7 @@ def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynam
 
             if current_notes == noteSequence[currentBeat][0]:
                 currentBeat += 1
+                serial_right_hand.write("b".encode())
 
 if __name__ == "__main__":
     start_practice_mode("../Interstellar Main Theme.mid", use_right_hand=True, use_left_hand=True, use_dynamics=True)
