@@ -67,4 +67,3 @@ def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynam
             if current_notes == noteSequence[currentBeat][0]:
                 currentBeat += 1
                 serial_right_hand.write("b".encode())
-                serial_right_hand.write("b".encode())
