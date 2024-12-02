@@ -41,7 +41,7 @@ def start_competitive_mode(midi_file_path):
             if elapsed_time > 45:
                 break
             
-            expected_notes, expected_velocity = noteSequence[current_index]
+            expected_notes, _ = noteSequence[current_index]
             
             played_note, velocity = -1, -1
             try:
@@ -54,14 +54,14 @@ def start_competitive_mode(midi_file_path):
             velocity = int(velocity.split("=")[1])
 
             if velocity > 0:
-                if played_note in expected_notes and expected_velocity - 20 <= velocity <= expected_velocity + 20:
+                if played_note in expected_notes:
                     score += 1
                     current_index += 1
                 else:
                     score -= 1
                 
 
-        return score
+        return score / len(noteSequence) * 100
 
 if __name__ == "__main__":
     start_competitive_mode("Interstellar Main Theme.mid")
