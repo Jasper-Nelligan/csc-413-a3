@@ -16,7 +16,7 @@ const unsigned long halfNote = quarterNote * 2;
 const unsigned long dottedHalfNote = quarterNote * 3;
 const unsigned long eighthNote = quarterNote / 2;
 
-const int songLength = 108; // Song length in half beats
+const int songLength = 73; // Song length in half beats
 
 // RGB colors
 const int offRGB[] = {0, 0, 0};
@@ -113,75 +113,40 @@ int song[songLength][5] = {
 
   // Bar 10
   {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
   {off, off, off, off, E_cyan},
 
   // Bar 11
   {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
   {off, off, off, off, E_cyan},
 
   // Bar 12
   {off, B_green, off, off, off},
-  {off, B_green, off, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
   {off, off, off, off, E_cyan},
 
   // Bar 13
   {off, B_green, off, off, off},
-  {off, B_green, off, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
   {off, off, off, off, E_cyan},
 
   // Bar 14
   {off, off, C_blue, off, off},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
   {off, off, off, off, E_cyan},
 
   // Bar 15
   {off, off, C_blue, off, off},
-  {off, off, C_blue, off, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
   {off, off, off, off, E_cyan},
 
   // Bar 16
   {off, off, off, D_yellow, off},
-  {off, off, off, D_yellow, off},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
   {off, off, off, off, E_cyan},
 
   // Bar 17
   {off, off, off, D_yellow, off},
-  {off, off, off, D_yellow, off},
   {off, off, off, off, E_cyan},
-  {off, off, off, off, E_cyan},
-  {off, B_green, off, off, off},
   {off, B_green, off, off, off},
 
   // Bar 18
   {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
-  {A_red, off, off, off, off},
+  {off, off, off, off, off},
 };
 
 bool practice = false;

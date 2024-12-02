@@ -16,7 +16,7 @@ const unsigned long halfNote = quarterNote * 2;
 const unsigned long dottedHalfNote = quarterNote * 3;
 const unsigned long eighthNote = quarterNote / 2;
 
-const int songLength = 108; // Song length in half beats
+const int songLength = 73; // Song length in half beats
 
 // RGB colors
 const int offRGB[] = {0, 0, 0};
@@ -114,73 +114,38 @@ int song[songLength][5] = {
   // Bar 10
   {F_magenta, off, off, off, C_blue},
   {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
 
   // Bar 11
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
   {off, off, off, off, off},
   {off, off, off, off, off},
 
   // Bar 12
   {D_yellow, off, G_white, off, off},
   {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
 
   // Bar 13
   {D_yellow, off, G_white, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
   {off, off, off, off, off},
 
   // Bar 14
   {E_cyan, off, off, A_red, off},
   {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
 
   // Bar 15
-  {E_cyan, off, off, A_red, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
   {off, off, off, off, off},
   {off, off, off, off, off},
 
   // Bar 16
   {D_yellow, off, G_white, off, off},
   {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
 
   // Bar 17
   {D_yellow, off, G_white, off, off},
   {off, off, off, off, off},
   {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
 
   // Bar 18
   {off, off, off, A_red, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
-  {off, off, off, off, off},
   {off, off, off, off, off},
 };
 
