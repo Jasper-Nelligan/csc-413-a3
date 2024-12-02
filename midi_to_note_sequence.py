@@ -21,6 +21,9 @@ def process_track(track):
     return events
 
 def midi_to_note_sequence(midi_file_path, use_right_hand, use_left_hand):
+    if not use_right_hand and not use_left_hand:
+        raise ValueError("At least one hand must be used")
+    
     midi_file = mido.MidiFile(midi_file_path)
 
     right_hand_events = []
