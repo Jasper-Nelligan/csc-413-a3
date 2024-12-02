@@ -43,27 +43,30 @@ def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynam
         current_notes = []
 
         for message in inport:
-            note, velocity = -1, -1
+            played_note, velocity = -1, -1
             try:
-                _, _, note, velocity, _ = str(message).split()
+                _, _, played_note, velocity, _ = str(message).split()
             except ValueError:
                 # Ignore messages that are not note_on
                 continue
 
-            note = int(note.split("=")[1])
+            played_note = int(played_note.split("=")[1])
             velocity = int(velocity.split("=")[1])
 
             if velocity > 0:
                 if not use_dynamics:
-                    current_notes.append(note)
+                    current_notes.append(played_note)
                 elif noteSequence[currentBeat][1] - 20 <= velocity <= noteSequence[currentBeat][1] + 20:
-                    current_notes.append(note)
+                    current_notes.append(played_note)
             else:
                 try:
-                    current_notes.remove(note)
+                    current_notes.remove(played_note)
                 except ValueError:
                     pass
 
             if current_notes == noteSequence[currentBeat][0]:
                 currentBeat += 1
                 serial_right_hand.write("b".encode())
+
+    serial_right_hand.close()
+    # serial_left_hand.close()
