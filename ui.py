@@ -1,25 +1,42 @@
 import pygame
 import customtkinter as ctk
+import practice
+import competitive
 
 # Initialize pygame mixer for audio playback
 pygame.mixer.init()
 
 # Fake data
-songs = ["Twinkle Twinkle Little Star", "Jingle Bells", "Für Elise"]
+songs = ["Interstellar Main Theme"]
 song_files = {
-    "Twinkle Twinkle Little Star": "mary.mp3",
-    "Jingle Bells": "jingle_bells.mp3",
-    "Für Elise": "fur_elise.mp3"
+    "Interstellar Main Theme": "Interstellar Main Theme.mp3",
 }
-scoreboard_data = [("Alice", 95), ("Bob", 88), ("Charlie", 72)]  # Sample scoreboard
+scoreboard_data = [("Alice", 95), ("Bob", 88), ("Charlie", 72)]
 
-def start_practice_mode():
+def enter_practice_mode():
     clear_options()
     add_practice_options()
 
-def start_competitive_mode():
+def start_practice_mode():
+    status_label.configure(text="Practice Started!")
+
+    use_dynamics = dynamics_var.get()
+    use_right_hand = right_hand_var.get()
+    use_left_hand = left_hand_var.get()
+
+    practice.start_practice_mode("Interstellar Main Theme.mid", use_dynamics, use_right_hand, use_left_hand)
+
+def enter_competitive_mode():
     clear_options()
     add_competitive_options()
+    update_scoreboard()
+
+def start_competitive_mode():
+    status_label.configure(text="Competitive Started!")
+    print("Competitive Started!")
+    score = competitive.start_competitive_mode("Interstellar Main Theme.mid")
+    print(f"Score: {score}")
+    scoreboard_data.append(("You", score))
     update_scoreboard()
 
 def start_listen_mode():
@@ -60,13 +77,13 @@ def add_practice_options():
     left_hand_checkbox.pack(pady=5)
 
     start_button = ctk.CTkButton(
-        options_frame, text="Start Practice", command=lambda: status_label.configure(text="Practice Started!")
+        options_frame, text="Start Practice", command=start_practice_mode
     )
     start_button.pack(pady=10)
 
 def add_competitive_options():
     start_button = ctk.CTkButton(
-        options_frame, text="Start Competitive", command=lambda: status_label.configure(text="Competitive Started!")
+        options_frame, text="Start Competitive", command=start_competitive_mode
     )
     start_button.pack(pady=10)
     scoreboard_label.pack(pady=10)  # Show scoreboard in Competitive Mode
@@ -101,10 +118,10 @@ ctk.CTkLabel(root, text="Choose a Mode:", font=("Arial", 16)).pack(pady=10)
 modes_frame = ctk.CTkFrame(root)
 modes_frame.pack(pady=10)
 
-practice_button = ctk.CTkButton(modes_frame, text="Practice Mode", command=start_practice_mode)
+practice_button = ctk.CTkButton(modes_frame, text="Practice Mode", command=enter_practice_mode)
 practice_button.grid(row=0, column=0, padx=10, pady=10)
 
-competitive_button = ctk.CTkButton(modes_frame, text="Competitive Mode", command=start_competitive_mode)
+competitive_button = ctk.CTkButton(modes_frame, text="Competitive Mode", command=enter_competitive_mode)
 competitive_button.grid(row=0, column=1, padx=10, pady=10)
 
 listen_button = ctk.CTkButton(modes_frame, text="Listen to Song", command=start_listen_mode)

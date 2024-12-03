@@ -10,10 +10,11 @@ from midi_to_note_sequence import midi_to_note_sequence
 import time
 
 def start_competitive_mode(midi_file_path):
-    time.sleep(2)
-
+    if not midi_file_path:
+        print("No MIDI file path provided. Exiting...")
+        exit()
+        
     noteSequence = midi_to_note_sequence(midi_file_path, True, True)
-    print(noteSequence)
 
     # Connect to the keyboard
     keyboard_port = -1
@@ -23,7 +24,6 @@ def start_competitive_mode(midi_file_path):
     except IndexError:
         print("No MIDI keyboard found. Exiting...")
         exit()
-    time.sleep(2)
 
     with mido.open_input(keyboard_port) as inport:
         print("Listening for MIDI messages...")
@@ -60,8 +60,4 @@ def start_competitive_mode(midi_file_path):
                 else:
                     score -= 1
                 
-
         return score / len(noteSequence) * 100
-
-if __name__ == "__main__":
-    start_competitive_mode("Interstellar Main Theme.mid")

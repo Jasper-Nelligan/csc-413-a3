@@ -88,6 +88,3 @@ def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynam
 
     serial_right_hand.close()
     serial_left_hand.close()
-
-if __name__ == "__main__":
-    start_practice_mode("Interstellar Main Theme.mid", True, True, False)
