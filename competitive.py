@@ -60,4 +60,4 @@ def start_competitive_mode(midi_file_path):
                 else:
                     score -= 1
                 
-        return score / len(noteSequence) * 100
+        return round(score / len(noteSequence) * 100)

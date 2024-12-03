@@ -86,5 +86,5 @@ def start_practice_mode(midi_file_path, use_right_hand, use_left_hand, use_dynam
                 if use_left_hand:
                     serial_left_hand.write("b".encode())
 
-    serial_right_hand.close()
-    serial_left_hand.close()
+        serial_right_hand.close()
+        serial_left_hand.close()

@@ -21,10 +21,11 @@ def start_practice_mode():
     status_label.configure(text="Practice Started!")
 
     use_dynamics = dynamics_var.get()
+    print()
     use_right_hand = right_hand_var.get()
     use_left_hand = left_hand_var.get()
 
-    practice.start_practice_mode("Interstellar Main Theme.mid", use_dynamics, use_right_hand, use_left_hand)
+    practice.start_practice_mode("Interstellar Main Theme.mid", use_right_hand, use_left_hand, use_dynamics)
 
 def enter_competitive_mode():
     clear_options()
